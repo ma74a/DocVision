@@ -1,0 +1,38 @@
+dataset:
+  # Original DocLayNet-small directory
+  source_dir: "/home/etman/etman/VisRAG-Papers/data"
+  # data_yaml: "/home/etman/etman/VisRAG-Papers/yolo_format_dataset/data.yaml"
+  data_yaml: "/content/drive/MyDrive/datasets/DocLayNet-YOLO/data.yaml"
+
+  # Destination for the converted YOLO dataset
+  output_dir: "/home/etman/etman/VisRAG-Papers/yolo_format_dataset"
+
+  splits:
+    - train
+    - val
+    - test
+
+  # Keep all 11 DocLayNet classes.
+  # Set this to a list of class names if you want a subset.
+  selected_classes: null
+
+# Model
+model:
+  architecture: "yolo11s.pt"
+  pretrained: true
+
+# Training
+training:
+  epochs: 50
+  image_size: 1024
+  batch_size: 4
+  workers: 2
+  device: 0
+  patience: 20
+  seed: 42
+  deterministic: true
+
+# Output
+output:
+  project: "outputs"
+  experiment_name: "yolo11n_doclaynet"
